@@ -64,9 +64,18 @@ Very fast but very rough api<notes>or very strong but requires hand holding</not
 <div>no print to pdf <notes>a feature so complex it could be it's own talk</notes></div>
 <div>totally seperate cloud infrastructure<notes>orig uses google, this is amazon</notes></div>
 <div>no external dependencies <notes>e.g. no google maps, hosting our own tiles etc</notes></div>
-<div>
-follow along at <em>http://geo.rodeo</em>
-</div>
-
+<div>required features:</div>
+<div>data updates</div>
+<div>the time updated</div>
+<div>the legend be accurate <notes>to reflect which features are being shown</notes></div>
+<div>to be able to click on it <notes>but we only need to show the one on top</notes></div>
+<div>the <em>plan</em>:</div>
+<div>host it entirly on <em>S3</em></div>
+<div>download/convert <notes>stuff is on esri, so we grab what we want, convert it to geojson, and do some processing</notes></div>
+<div>generate tiles and utfgrids with mapnik <notes>and they go into their own "folder" (dr evil style airquotes)</notes></div>
+<div>replace the index file with one pointing to the new "folder" <notes>and maybe clean them up at some point</notes></div>
+<div>set up a testing version<notes>it works very nicely</notes></div>
+<div>One month latter<notes>all company email gets sent out</notes></div>
+<div>Our s3 usage has spiked to 100 million requests last month<notes>we had had 3 million the previous month</notes></div>
 </body>
 </html>
