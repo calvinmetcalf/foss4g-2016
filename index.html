@@ -71,12 +71,17 @@ Very fast but very rough api<notes>or very strong but requires hand holding</not
 <div>to be able to click on it <notes>but we only need to show the one on top</notes></div>
 <div>the <em>plan</em>:</div>
 <div>host it entirly on <em>S3</em></div>
-<div>download/convert <notes>stuff is on esri, so we grab what we want, convert it to geojson, and do some processing</notes></div>
+<div>download/convert <notes>stuff is on esri, so we grab what we want, convert it to geojson, and do some processing/grab some stats</notes></div>
 <div>generate tiles and utfgrids with mapnik <notes>and they go into their own "folder" (dr evil style airquotes)</notes></div>
-<div>replace the index file with one pointing to the new "folder" <notes>and maybe clean them up at some point</notes></div>
+<div>replace the index file with one pointing to the new "folder" <notes>also contains updated stats for the legend</notes></div>
+<div>use cloudfront cdn in front<notes>only way to have multiple subdomains with s3</notes></div>
 <div>set up a testing version<notes>it works very nicely</notes></div>
-<div>One month latter<notes>all company email gets sent out</notes></div>
+<div>One month later<notes>all company email gets sent out</notes></div>
 <div>Our s3 usage has spiked to 100 million requests last month<notes>we had had 3 million the previous month</notes></div>
 <div>now we add a filter for blank tiles<notes>bonus, like 5 times faster</notes></div>
+<div>wait how do you use mapnik?<notes>I did somewhat skip a step there</notes></div>
+<div><em>tilelive</em>: 100% open source 10% documented from <em>mapbox</em><notes>good thing I learned JavaScript by trying to figure out the api of mapbox projects</notes></div>
+<div>generating tiles from tilemill xml is documented</div>
+<div>generating from mapbox studio classic, not so much</div>
 </body>
 </html>
