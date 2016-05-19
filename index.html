@@ -5,10 +5,12 @@
   <meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
 <link href='big.css' rel='stylesheet' type='text/css' />
 
-<script src='big.js'></script></head><body>
+<script src='big.js'></script></head><body class="invisable">
 
 <div>
   When <em>worse</em> is <em>better</em>: making a <em>dumb</em> as <em>bricks</em> app for use when <em>everything</em> goes <em>wrong</em>
+  <notes>follow allong at geo.rodeo</notes>
+  <notes>on a side note, if the organizers of the geo rodeo would like this domain for next year, talk to me after</notes>
 </div>
 <div><em>Calvin</em> Metcalf<notes>hello my name is Calvin Metcalf</notes></div>
 
@@ -24,9 +26,6 @@
 <div>node.js<notes>my involvement with Node.js</notes></div>
 
 
-<div>drivetexas.org<notes>or drivetexas.org</notes></div>
-
-
 <div>favorite app<notes>today we're talking about my favorite app </notes></div>
 
 
@@ -36,10 +35,11 @@
 <div>small scale<notes>my company AppGeo traditionally has done apps for governmental agencies and local government</notes><notes>These apps, especially local government ones, have some hard caps on the number of users</notes></div>
 
 
-<div>litterally dozens of users<notes>In other words, scaling is not an issue we usually have to deal with</notes><notes>This is not the case with drivetexas.org</notes><notes>We had well over 100 thousand hits on april 18th of this year</notes></div>
+<div>litterally dozens of users<notes>In other words, scaling is not an issue we usually have to deal with</notes><notes>This is not the case with drivetexas.org</notes><notes>which you might even have used to get here</notes><notes>We had well over 100 thousand hits on april 18th of this year</notes></div>
 
 
-<div>did <em>something</em> happen on april 18th?<notes>The data can also change rapidly</notes></div>
+<div>did <em>something</em> happen on april 18th?
+  <notes>the data on drivetexas can also change rapidly</notes></div>
 
 
 <div><em>rapid</em> flux<notes>And the data tends to change most rapidly when people are using it the most due to secondary delays and accidents or county wide conditions that are applied to all (state) roads in the county</notes></div>
@@ -48,7 +48,7 @@
 <div>premise<notes>The gist of the drivetexas is that txdot has conditions in a esri feature service with traffic conditions like accidents and construction which it needs displayed on a map that will work even if 100,000 people use it.</notes><notes>we came in to replace a solution based on ESRI tech that didn't work, not shocking since esri often has trouble with 'the web'</notes></div>
 
 
-<div>the CDN is the slowest thing to load on arcgis online<notes>This originally ran on a Google product</notes></div>
+<div>the <em>CDN</em> is the slowest thing to load on <em>AGOL</em><notes>This originally ran on a Google product</notes></div>
 
 <div>Google Maps Engine<notes> called maps engine (GME) which has now been discontinued.  The site now runs on</notes></div>
 
@@ -57,7 +57,7 @@
 
 <div>like rain man<notes>and broke a couple times including once when I was on my honeymoon</notes></div>
 
-<div>worst possible time<notes>which thankfully others were able to solve, and another time on a weekend and I ended up having to diagnose problems with google engineers and write a patch from a balcony of a party I was at … a party thrown by a friend of my wife.</notes></div>
+<div><em>worst</em> possible time<notes>which thankfully others were able to solve, and another time on a weekend and I ended up having to diagnose problems with google engineers and write a patch from a balcony of a party I was at … a party thrown by a friend of my wife.</notes></div>
 
 <div>wife was <em>not</em> amused<notes>it was decided we would make a 2nd version of drivetexas</notes></div>
 
@@ -68,10 +68,10 @@
 <div>self contained<notes>it would be as self contained as possible no external dependencies if possible</notes></div>
 
 
-<div>dumb as rocks<notes>It would be as simple as possible, both in the sense that it would only have the features it absolutely needed to get the job done and in the sense of avoiding having much of a backend to handle serving requests.</notes></div>
+<div>dumb as <em>rocks</em><notes>It would be as simple as possible, both in the sense that it would only have the features it absolutely needed to get the job done and in the sense of avoiding having much of a backend to handle serving requests.</notes></div>
 
-
-<div>tiles sitting on s3<notes>My idea was to use mapnik to generate a pyramid of tiles, both images, and utf grids to provide interaction.  We’d create the tile and then upload it to s3.</notes></div>
+<div>switch over to it<notes>so in case of the main site breaking we could flip a switch and activate that one</notes></div>
+<div>tiles sitting on <em>s3</em><notes>My idea was to use mapnik to generate a pyramid of tiles, both images, and utf grids to provide interaction.  We’d create the tile and then upload them to s3.</notes></div>
 
 
 <div>very <em>snappy</em><notes>This was surprisingly snappy, so we were able to tile it to level 11 every 5 minutes instead of level 10 every 10 minutes as originally planned.</notes><notes>I’d used tilelive to generate tiles for with mapnik for an app before so I just copied my same setup. </notes></div>
@@ -86,60 +86,68 @@
 <div>it works!<notes>Once I had a proof of concept that mapnik and s3 would be viable then it came to creating the actual webapp. </notes></div>
 
 
-<div>just say <em>no</em><notes>The app was being stripped to its bare essentials.  Naimly it would always show all current conditions, so we would remove the ability to toggle off condition types, the ability to switch over to viewing planned construction, the ability to do searches, to plan routes, and to view other interesting layers.</notes></div>
+<div>just say <em>no</em><notes>The app was being stripped to its bare essentials.  Namely it would always show all current conditions, so we would remove the ability to toggle off condition types, the ability to switch over to viewing planned construction, the ability to do searches, to plan routes, and to view other interesting layers.</notes></div>
 
 
-<div>only show most importent one<notes>If multiple conditions were located at the same location, we’d only show the one that was ‘on top’ based on the condition sorting, unlike the main one which showed them all.</notes></div>
+<div>only show most <em>importent</em> one<notes>If multiple conditions were located at the same location, we’d only show the one that was ‘on top’ based on the condition sorting, unlike the main one which showed them all.</notes></div>
 
 
-<div>legend must be accurate<notes>The legend does have to show only those types of conditions that are present on the map, i.e. if there is no snow on the map, don’t show it on the legend.</notes></div>
+<div><em>legend</em> must be <em>accurate</em><notes>The legend does have to show only those types of conditions that are present on the map, i.e. if there is no snow on the map, don’t show it on the legend.</notes></div>
 
 
-<div>I 💙 leaflet<notes>We use leaflet for the map, along with the very nice utf grid plugin plus use leaflet.hash and a modified version of the legend plugin from mapbox.</notes></div>
+<div>I :<em>heart</em>: leaflet <notes>We use leaflet for the map, along with the very nice utf grid plugin plus use leaflet.hash and a modified version of the legend plugin from mapbox.</notes></div>
 
 
-<div>1 "folder" per run<notes>The way we end up doing it is that each time it runs, the tiles go into a new folder.</notes></div>
+<div>1 "<em>folder</em>" per run<notes>The way we end up doing it is that each time it runs, the tiles go into a new folder.</notes></div>
 
 
 <div>never load anything twice<notes>We set the cache-control attributes on the tiles so that browsers would cache them for a year</notes></div>
 
 
-<div>mustache template for the index<notes>We have a mustache template for the index page and when we are done uploading the tiles we use the template to set which of the legend items are visible, the new path to the tiles, and the updated date.</notes></div>
+<div><em>mustache</em> template for the index page<notes>We have a mustache template for the index page and when we are done uploading the tiles we use the template to set which of the legend items are visible, the new path to the tiles, and the updated date.</notes></div>
 
 
 <div>meta refresh<notes>To ensure that the client sees the most up to date version of it, we use the super fancy meta refresh tag.</notes></div>
 
 
-<div>cloud front<notes>We use amazon cloudfront to allow us to have multiple subdomains point to the same file</notes></div>
+<div>cloudfront<notes>We use amazon cloudfront to allow us to have multiple subdomains point to the same file</notes></div>
 
 
-<div>cron 4 life<notes>I setup a cron job to run this every 5 minutes and everything is great</notes></div>
+<div><em>cron</em> 4 life<notes>I setup a cron job to run this every 5 minutes and everything is great</notes></div>
 
 
-<div>one month later<notes>For a month then all company email</notes></div>
+<div>one <em>month</em> later<notes>For a month then all company email</notes></div>
 
 
-<div>100 million s3 puts<notes>Out s3 usage spiked 2 orders of magnitude last month anybody know whats happening ?</notes></div>
+<div>100 <em>million</em> s3 puts<notes>Out s3 usage spiked 2 orders of magnitude last month anybody know whats happening ?</notes></div>
 
 
 <div>woops<notes>That was my bad.</notes></div>
 
 
-<div>now filter out blanks<notes>I added a test for blank tiles and utf grids ends up filtering out like 90% plus</notes></div>
+<div>now <em>filter</em> out <em>blanks</em><notes>I added a test for blank tiles and utf grids ends up filtering out like 90% plus</notes></div>
 
 
-<div>need to background tiles<notes>At this point we also realized that the background tiles I had copied into our s3 bucket for development were going to be a no go production due to flagrantly violating the mapbox terms of service.</notes></div>
+<div>need <em>background</em> tiles<notes>At this point we also realized that the background tiles I had copied into our s3 bucket for development were going to be a no go production due to flagrantly violating the mapbox terms of service.</notes></div>
 
 
-<div>getting tiles out of tilemills successor should be easy<notes>Since the client wanted a few changes anyway I figured I could just tile it based on the output of mapbox studio classic, how hard could that be</notes></div>
+<div>getting tiles out of <em>tilemill's</em> successor should be easy<notes>Since the client wanted a few changes anyway I figured I could just tile it based on the output of mapbox studio classic, how hard could that be</notes></div>
 
 
-<div>no<notes>Very fraking hard</notes></div>
+<div><em>very</em><notes>Very fraking hard</notes></div>
 
 
-<div>mojodna to the rescue<notes>Thankfully Seth Fitzsimmons aka mojodna from stamen had figured out how and I was able to create my own mapbox-streets like tiles that could be in my own s3 bucket and wouldn’t go down if mapbox went down</notes></div>
+<div><em>mojodna</em> to the rescue<notes>Thankfully Seth Fitzsimmons aka mojodna from stamen had figured out how and I was able to create my own mapbox-streets like tiles that could be in my own s3 bucket and wouldn’t go down if mapbox went down</notes></div>
 
 
 <div>DNS<notes>And the last thing was redirecting users to the static map if drivetexas went down and back when it went up, done using this new fangled technology called ‘DNS’.</notes></div>
+<div>fin<notes>and thats how it works</notes></div>
+<div>shameless plug for foss4g 2017 in boston</div>
+<div>
+  <p>this presentation: <em>geo.rodeo</em></p>
+  <p>the static map: <em>static.drivetexas.org</em></p>
+  <p>me on twitter: <em>@cwmma</em></p>
+  <notes>maybe do awards ceremony for bingo?</notes>
+</div>
 </body>
 </html>

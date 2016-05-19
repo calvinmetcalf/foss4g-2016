@@ -64,3 +64,6 @@ notes {
 .odd em {
   color: #418AD0;
 }
+.invisable div {
+  visibility: hidden;
+}
