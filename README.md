@@ -1,4 +1,5 @@
 geo rodeo talk
 ====
 
-talk will go here
+- talk: http://geo.rodeo
+- printable version: http://geo.rodeo/printable
