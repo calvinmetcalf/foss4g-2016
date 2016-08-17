@@ -1,5 +1,4 @@
-geo rodeo talk
+talk being given at foss4g 2016
 ====
 
-- talk: http://geo.rodeo
-- printable version: http://geo.rodeo/printable
+- talk: https://calvinmetcalf.github.io/foss4g-2016
