@@ -2,50 +2,48 @@
 <html>
 <head>
   <title>GEO RODEO</title>
-<link rel="icon" type="image/png" sizes="192x192"  href="/favicon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
 <link href='big.css' rel='stylesheet' type='text/css' />
 
 <script src='big.js'></script></head><body class="invisable">
 <div>Calvin Metcalf<notes>hi my name is calvin metcalf</notes></div>
-<div>AppGeo<notes>I work for a company called AppGeo, they arn't really going to figure into this talk but since they payed for me to come all the way to Germany for this talk they will be getting random pitches appropo to nothing in the middle of this speach</notes></div>
+<div><em>AppGeo</em><notes>I work for a company called AppGeo, they arn't really going to figure into this talk but I've got to thank them since they payed for me to come all the way to Germany for this talk</notes></div>
 <div>Proj4js<notes>today we are talking about proj4js, a library I
 "maintain"</notes></div>
-<div>note air quotes<notes>first let me dive into a little history of proj4 and my involvement, while doing so I'm going to be all the suported projections</notes></div>
+<div>note air quotes<notes>while doing the rest of this talk I'm going to be all listing all the suported projections to give you a feeling for the skope of this library</notes></div>
 <div>
 aea <em>aka</em> Albers_Conic_Equal_Area <em>aka</em> Albers<notes>like this.  All the projections have a short name, used in the proj strings and one or more long names used in well known text definitions</notes>
-</div><div>
-aeqd <em>aka</em> Azimuthal_Equidistant<notes>anywho my involvment started after I bitched about it on twitter</notes>
-</div><div>
-cass <em>aka</em> Cassini <em>aka</em> Cassini_Soldner<notes>I had written my shapefile parser and was having trouble using it with in the wild shpfiles and couldn't get proj4js to work on any of the .proj files I had</notes></div><div>
-cea</div><div>
-eqc <em>aka</em> Equirectangular <em>aka</em> Equidistant_Cylindrical<notes>it was not really being maintained so I volunteered</notes></div><div>
-eqdc <em>aka</em> Equidistant_Conic<notes>it had no readme, it was built via an ad-hoc python system, and had a sync api but in the background made async calls to http://spatialreference.org/</notes></div><div>
-equi<notes>it was very obviously Java code trasnsliteraded into JavaScript, complete with it's own class implimentation</notes></div><div>
-gauss</div><div>
-gnom</div><div>
-gstmerc</div><div>
-krovak <em>aka</em> Krovak</div><div>
-laea <em>aka</em> Lambert Azimuthal Equal Area <em>aka</em> Lambert_Azimuthal_Equal_Area
-lcc <em>aka</em> Lambert Tangential Conformal Conic Projection <em>aka</em> Lambert_Conformal_Conic <em>aka</em> Lambert_Conformal_Conic_2SP</div><div>
-longlat <em>aka</em> identity</div><div>
-merc <em>aka</em> Popular Visualisation Pseudo Mercator <em>aka</em> Mercator_1SP <em>aka</em> Mercator_Auxiliary_Sphere</div><div>
-mill <em>aka</em> Miller_Cylindrical</div><div>
-moll <em>aka</em> Mollweide</div><div>
-nzmg <em>aka</em> New_Zealand_Map_Grid</div><div>
-omerc <em>aka</em> Hotine_Oblique_Mercator <em>aka</em> Hotine Oblique Mercator <em>aka</em> Hotine_Oblique_Mercator_Azimuth_Natural_Origin <em>aka</em> Hotine_Oblique_Mercator_Azimuth_Center</div><div>
-ortho</div><div>
-poly <em>aka</em> Polyconic</div><div>
-sinu <em>aka</em> Sinusoidal</div><div>
-somerc</div><div>
-stere <em>aka</em> Stereographic_South_Pole <em>aka</em> Polar Stereographic (variant B)</div><div>
-sterea <em>aka</em> Stereographic_North_Pole <em>aka</em> Oblique_Stereographic <em>aka</em> Polar_Stereographic <em>aka</em> Oblique Stereographic Alternative</div><div>
-tmerc <em>aka</em> Transverse_Mercator <em>aka</em> Transverse Mercator</div><div>
-utm <em>aka</em> Universal Transverse Mercator System</div><div>
-vandg <em>aka</em> Van_der_Grinten_I <em>aka</em> VanDerGrinten
+
+</div><div>aeqd <em>aka</em> Azimuthal_Equidistant<notes>anywho my involvment started after I bitched about it on twitter</notes>
+
+</div><div>cass <em>aka</em> Cassini <em>aka</em> Cassini_Soldner<notes>I had written a shapefile parser and was having trouble using it with in the wild shpfiles and couldn't get proj4js to work on any of the .proj files I had</notes>
+</div><div>cea<notes>it was not really being maintained so I volunteered</notes>
+</div><div>eqc <em>aka</em> Equirectangular <em>aka</em> Equidistant_Cylindrical<notes>it had no readme, it was built via an ad-hoc python system, and had a sync api but in the background made async calls to http://spatialreference.org/</notes>
+</div><div>eqdc <em>aka</em> Equidistant_Conic<notes>it had been seperated out of mapbuilder, an OGC project and it was very much a Java/C++ transliterated into JavaScript complete with it's own class implimentation</notes>
+</div><div>equi<notes>by the time I got my hands on it it was very much the worst parts of object oriented programing</notes>
+</div><div>gauss<notes>everything is a property on the object, methods never return anything and just mutate the state</notes>
+</div><div>gnom<notes>it is incredibly hard to to follow the flow of anything</notes>
+</div><div>gstmerc<notes>and there are occational errors we still get where subsequent projections give different results due to global state mutation</notes>
+</div><div>krovak <em>aka</em> Krovak <notes>many projections have their own flags and terms, like this one which has a flag entitled 'czech' which is never defined or used anywhere else, is it important? is it used anywhere? who knows</notes>
+</div><div>laea <em>aka</em> Lambert Azimuthal Equal Area <em>aka</em> Lambert_Azimuthal_Equal_Area<notes>most of the inner projection code is filled with single letter variables</notes>
+</div><div>lcc <em>aka</em> Lambert Tangential Conformal Conic Projection <em>aka</em> Lambert_Conformal_Conic <em>aka</em> Lambert_Conformal_Conic_2SP<notes>there is very little documentation about which parameters are actually needed to do the projection</notes>
+</div><div>longlat <em>aka</em> identity<notes>datum shifts are very intertwined hence the need for a null projections</notes>
+</div><div>merc <em>aka</em> Popular Visualisation Pseudo Mercator <em>aka</em> Mercator_1SP <em>aka</em> Mercator_Auxiliary_Sphere<notes>part of the issue does have to do with how projections are communicated, which ends up being the harder problem</notes>
+</div><div>mill <em>aka</em> Miller_Cylindrical<notes>In my opinion Well-known text representation of coordinate reference systems is objectivly and emperically the worst format ever</notes>
+</div><div>moll <em>aka</em> Mollweide<notes>it uses it's own bespoke serlialization format, not even s-expressions or xml</notes>
+</div><div>nzmg <em>aka</em> New_Zealand_Map_Grid<notes>has had absolutly no feedback or knowlege of actual usage, like all projections people use use the keyword 'projection' to define a projection, even though that is technically an alias for 'method'</notes>
+</div><div>omerc <em>aka</em> Hotine_Oblique_Mercator <em>aka</em> Hotine Oblique Mercator <em>aka</em> Hotine_Oblique_Mercator_Azimuth_Natural_Origin <em>aka</em> Hotine_Oblique_Mercator_Azimuth_Center<notes>spends huge amount of effort on stuff like axis order and direction, inheretence, while while only doing a cursury job defining projections themselves while managing to define multiple projections to share the same alias</notes>
+</div><div>ortho<notes>in practise there are multiple informal conflicting implimenations, including an esri one which prefixes all parameters with a d_ for some reason</notes>
+</div><div>poly <em>aka</em> Polyconic<notes>but in a burst of productivity back when I worked for the state and my boss would go on vacation for months without giving me work, I with the help of Andreas Hocevar got proj4js to a point that you could give it a .proj file and it will likely corretly project your stuff</notes>
+</div><div>sinu <em>aka</em> Sinusoidal<notes>probabaly, though not neccisarily tested in all the projections, like with</notes>
+</div><div>somerc<notes>this swiss projection which I think is an alias for omerc</notes>
+</div><div>stere <em>aka</em> Stereographic_South_Pole <em>aka</em> Polar Stereographic (variant B)<notes>I think the next stop is to pull out the wkt parser and proj string parser and have those generate an intermediate format that we could use to do the actual projections</notes>
+</div><div>sterea <em>aka</em> Stereographic_North_Pole <em>aka</em> Oblique_Stereographic <em>aka</em> Polar_Stereographic <em>aka</em> Oblique Stereographic Alternative<notes>preferably this would be something we could standardize, like a geojson of proj descriptions</notes>
+</div><div>tmerc <em>aka</em> Transverse_Mercator <em>aka</em> Transverse Mercator<notes>I'm going to get on that as soon as I have some free time in my life</notes>
+</div><div>utm <em>aka</em> Universal Transverse Mercator System<notes>or you the user of an obscure projection could help do that instead of being shocked, shocked I say, that my obscure projection is not actually supported</notes>
+</div><div>vandg <em>aka</em> Van_der_Grinten_I <em>aka</em> VanDerGrinten<notes>or you could just try coming up with some authoritative test vectors that all the different projection libraries could validate against, because currenlty when there is a conflict between libraries</notes>
 </div>
+<div>like wearing two watches<notes>it's not always obvious which one is actually correct</notes></div>
+<div><em>fin</em>.<div>
 </body>
 </html>
